@@ -1,27 +1,29 @@
 {
-  "name": "sip",
+  "name": "@penggy/sip",
   "description": "Simple SIP implementation",
-  "version": "0.0.3",
-  "homepage": "http://github.com/kirm/sip.js",
-  "author": "Kirill Mikhailov <kirill.mikhailov@gmail.com>",
+  "version": "0.0.4",
+  "homepage": "http://github.com/penggy/sip.js",
+  "author": "penggy",
   "main": "sip",
   "scripts": {
     "test": "./node_modules/.bin/coffee test/runtests.coffee"
   },
   "directories": {
-    "lib": "",
     "example": "./examples",
     "doc": "./doc"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kirm/sip.js.git"
+    "url": "https://github.com/penggy/sip.js.git"
   },
   "engines": {
     "node": ">=0.2.2"
   },
   "dependencies": {
-    "uws": "*"
+    "ws": "5.1.1"
   },
   "devDependencies": {
     "coffee-script": "~1.6.2"

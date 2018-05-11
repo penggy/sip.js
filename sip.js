@@ -6,7 +6,7 @@ var dgram = require('dgram');
 var tls = require('tls');
 var os = require('os');
 var crypto = require('crypto');
-var WebSocket = require('uws');
+var WebSocket = require('ws');
 
 function debug(e) {
   if(e.stack) {
@@ -676,6 +676,9 @@ function makeWsTransport(options, callback) {
         callback(msg, {protocol: 'WS', address: remote.address, port: remote.port, local: local});
       }
     });
+    ws.on('error', function(ws, err) {
+      console.error(ws, err);
+    })
   }
 
   function makeClient(uri) {
@@ -726,6 +729,9 @@ function makeWsTransport(options, callback) {
     }
 
     server.on('connection',init);
+    server.on('error', function(ws, err) {
+      console.error(ws, err);
+    })
   }
 
   function get(flow) {
